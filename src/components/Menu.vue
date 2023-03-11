@@ -37,25 +37,28 @@
 
             <img class="img_item" loading="lazy" src="https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg">
 
-            <div class="description_item rounded-3 pt-4 ps-2 pe-2">
-              <h3>{{ product.name }}</h3>
-              <P>{{ product.decription }}</P>
-            </div>
+            <div class="info_product_menu rounded-3 d-flex flex-column justify-content-between h-100">
 
-            <div class="d-flex align-items-center justify-content-between p-2">
-              <p class="mb-0 ps-2">{{ product.price }} руб.</p>
-
-              <div v-if='cart[product.id]' @click='delCart(product)' class="add_cart d-flex justify-content-center">
-                <span>➖</span>
+              <div class="description_item pt-4 ps-2 pe-2">
+                <h3>{{ product.name }}</h3>
+                <P>{{ product.decription }}</P>
               </div>
 
-              <div v-if='cart[product.id]'>{{ cart[product.id].quantity }}</div>
+              <div class="d-flex align-items-center justify-content-between p-2 prise">
+                <p class="mb-0 ps-0 ps-sm-2">{{ product.price }} руб.</p>
 
-              <div @click='addCart(product)' class="add_cart d-flex justify-content-center">
-                <span>➕</span>
+                <div v-if='cart[product.id]' @click='delCart(product)' class="add_cart d-flex justify-content-center">
+                  <span>➖</span>
+                </div>
+
+                <div v-if='cart[product.id]'>{{ cart[product.id].quantity }}</div>
+
+                <div @click='addCart(product)' class="add_cart d-flex justify-content-center">
+                  <span>➕</span>
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
 
         </div>
@@ -64,13 +67,13 @@
     </div>
   </section>
 
-  <div class="sticky-bottom d-flex" v-if='countCart()'>
+  <div class="mini_cart sticky-bottom p-3" v-if='countCart()'>
+    <div type="button" data-bs-toggle="modal" data-bs-target="#modal-Cart" class="btn_cart d-flex w-100 align-items-center justify-content-between">
+      <h2>Корзина:</h2>
 
-    <h2>Корзина:</h2>
-
-    <div>{{ countCart() }} шт.</div>
-    <div>{{ sumCart() }} руб.</div>
-
+      <div>{{ countCart() }} шт.</div>
+      <div>{{ sumCart() }} руб.</div>
+    </div>
   </div>
 </template>
 
@@ -202,5 +205,4 @@ nav {
 
 nav.scrolled {
   border-bottom: 0px;
-}
-</style>
+}</style>
