@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assest/css/style.css">
+    <link rel="stylesheet" href="assest/css/slick.css">
+    <title>Меню-демо</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-xxl m-auto position-relative d-flex flex-column justify-content-between">
+            <!--   <img src="assest/images/fon-header.jpeg" alt="Задний фон"> -->
+            <div>
+                <img class="logo mt-3 ms-3" src="assest/images/logo.jpeg" alt="Логотип">
+            </div>
+            <div class="d-flex p-1">
+                <h1 class="text-light col-11 col-md-10">True Cost караоке-кафе «Шальная Императрица»</h1>
+                <svg type="button" data-bs-toggle="modal" data-bs-target="#exampleModalLabel" class="col-1 col-md-2"
+                    width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="23" cy="23" r="23" fill="white" />
+                    <path
+                        d="M23.0116 20.002C21.9073 20.002 21.1221 20.5009 21.1221 21.236V31.2389C21.1221 31.869 21.9073 32.499 23.0116 32.499C24.0669 32.499 24.9257 31.869 24.9257 31.2389V21.2359C24.9257 20.5008 24.0669 20.002 23.0116 20.002Z"
+                        fill="#FF2C3D" />
+                    <path
+                        d="M23.0122 13.8325C21.8834 13.8325 21 14.6989 21 15.6966C21 16.6943 21.8834 17.587 23.0122 17.587C24.1165 17.587 25 16.6943 25 15.6966C25 14.6989 24.1164 13.8325 23.0122 13.8325Z"
+                        fill="#FF2C3D" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Модалька с меню -->
+    <div class="modal custom fade anim_menu_modal" id="exampleModalLabel2" tabindex="-1"
+        aria-labelledby="exampleModalLabel2" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Категории</h1>
+                    <button type="button" class="btn-close anim_close" data-bs-dismiss="modal"
+                        aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div type="button" class="mb-3 modal_menu_items" data-bs-dismiss="modal">
+                        <a type="button"  class="d-flex close_button anim_close_btn"
+                        href="#scrollspyHeading1">
+                            <img class="col-4 me-2" src="assest/images/bludo1.jpeg" alt="блюдо">
+                            <div>
+                                <h4>Название категории</h4>
+                                <p class="quantity">7 Позицый</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div type="button" class="mb-3 modal_menu_items" data-bs-dismiss="modal">
+                        <a type="button"  class="d-flex close_button anim_close_btn"
+                        href="#scrollspyHeading2">
+                            <img class="col-4 me-2" src="assest/images/bludo1.jpeg" alt="блюдо">
+                            <div>
+                                <h4>Название категории</h4>
+                                <p class="quantity">7 Позицый</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div type="button" class="mb-3 modal_menu_items" data-bs-dismiss="modal">
+                        <a type="button"  class="d-flex close_button anim_close_btn"
+                        href="#scrollspyHeading3">
+                            <img class="col-4 me-2" src="assest/images/bludo1.jpeg" alt="блюдо">
+                            <div>
+                                <h4>Название категории</h4>
+                                <p class="quantity">7 Позицый</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div type="button" class="mb-3 modal_menu_items" data-bs-dismiss="modal">
+                        <a type="button"  class="d-flex close_button anim_close_btn"
+                        href="#scrollspyHeading4">
+                            <img class="col-4 me-2" src="assest/images/bludo1.jpeg" alt="блюдо">
+                            <div>
+                                <h4>Название категории</h4>
+                                <p class="quantity">7 Позицый</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div type="button" class="mb-3 modal_menu_items" data-bs-dismiss="modal">
+                        <a type="button"  class="d-flex close_button anim_close_btn"
+                        href="#scrollspyHeading5">
+                            <img class="col-4 me-2" src="assest/images/bludo1.jpeg" alt="блюдо">
+                            <div>
+                                <h4>Название категории</h4>
+                                <p class="quantity">7 Позицый</p>
+                            </div>
+                        </a>
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary anim_close_btn"
+                        data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Модалька с инфой о сайте -->
+    <div class="modal custom fade" id="exampleModalLabel" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">О ресторане</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <div class="accordion-header" id="headingOne">
+                                <a class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <div class="col-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                                            viewBox="0 0 20.367 20.367">
+                                            <g id="Group_2609" data-name="Group 2609"
+                                                transform="translate(-100.919 -727.919)">
+                                                <g id="clock" transform="translate(100.919 727.919)">
+                                                    <g id="Group_2606" data-name="Group 2606"
+                                                        transform="translate(9.395 4.725)">
+                                                        <g id="Group_2605" data-name="Group 2605">
+                                                            <path id="Path_3350" data-name="Path 3350"
+                                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                                transform="translate(-236.169 -118.779)" />
+                                                        </g>
+                                                    </g>
+                                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                                        <g id="Group_2607" data-name="Group 2607">
+                                                            <path id="Path_3351" data-name="Path 3351"
+                                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                                transform="translate(0)" />
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="d-flex flex-column col-8 time-work">
+                                        <span>Пн:</span>
+                                        <span>12:00 - 03:00</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body p-0 ms-5">
+                                    <div class="d-flex flex-column col-11 time-work ps-2">
+                                        <span>Вт:</span>
+                                        <span>12:00 - 03:00</span>
+                                    </div>
+                                    <div class="d-flex flex-column col-11 time-work ps-2">
+                                        <span>Ср:</span>
+                                        <span>12:00 - 03:00</span>
+                                    </div>
+                                    <div class="d-flex flex-column col-11 time-work ps-2">
+                                        <span>Чт:</span>
+                                        <span>12:00 - 03:00</span>
+                                    </div>
+                                    <div class="d-flex flex-column col-11 time-work ps-2">
+                                        <span>Пн:</span>
+                                        <span>12:00 - 05:00</span>
+                                    </div>
+                                    <div class="d-flex flex-column col-11 time-work ps-2">
+                                        <span>Сб:</span>
+                                        <span>14:00 - 05:00</span>
+                                    </div>
+                                    <div class="d-flex flex-column col-11 time-work ps-2">
+                                        <span>Вс:</span>
+                                        <span>14:00 - 03:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 mb-3">
+
+                        <svg class="col-1" xmlns="http://www.w3.org/2000/svg" width="20.367" height="20.367"
+                            viewBox="0 0 20.367 20.367">
+                            <g id="Group_2609" data-name="Group 2609" transform="translate(-100.919 -727.919)">
+                                <g id="clock" transform="translate(100.919 727.919)">
+                                    <g id="Group_2606" data-name="Group 2606" transform="translate(9.395 4.725)">
+                                        <g id="Group_2605" data-name="Group 2605">
+                                            <path id="Path_3350" data-name="Path 3350"
+                                                d="M240.586,126.036l-2.84-2.13v-4.338a.789.789,0,0,0-1.578,0V124.3a.787.787,0,0,0,.316.631l3.155,2.366a.789.789,0,0,0,.947-1.262Z"
+                                                transform="translate(-236.169 -118.779)" />
+                                        </g>
+                                    </g>
+                                    <g id="Group_2608" data-name="Group 2608" transform="translate(0)">
+                                        <g id="Group_2607" data-name="Group 2607">
+                                            <path id="Path_3351" data-name="Path 3351"
+                                                d="M10.184,0A10.184,10.184,0,1,0,20.367,10.184,10.195,10.195,0,0,0,10.184,0Zm0,18.79a8.606,8.606,0,1,1,8.606-8.606A8.617,8.617,0,0,1,10.184,18.79Z"
+                                                transform="translate(0)" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <p class="col-10 mb-0">г. Чебоксары, ул. Карла Маркса 21А</p>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="d-flex flex-wrap">
+            <div class="col-12 col-md-6">
+                <h4>О нас</h4>
+                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae voluptas nisi voluptates. At
+                    nulla et sit dolorem vitae accusamus repellendus vel ducimus neque rem, voluptatum assumenda,
+                    recusandae eum alias aut?</P>
+            </div>
+            <div class="col-12 col-md-6">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>Телефон: <span> 8(999)888-88-88</span></li>
+                    <li>Адрес: <span>г.Чебоксары, ул. Карла Маркса 21А</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright text-center">Все права защищены © 2023г.</div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    <script src="assest/js/bootstrap.bundle.min.js"></script>
+    <script src="assest/js/slick.min.js"></script>
+    <script src="assest/js/main.js"></script>
+
+</body>
+
+</html>
