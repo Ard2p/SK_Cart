@@ -5,7 +5,7 @@
         <!-- <img class="logo mt-3 ms-3" src="assest/images/logo.jpeg" alt="Логотип"> -->
       </div>
       <div class="d-flex p-1">
-        <h1 class="text-light col-11 col-md-10">SK Bar - рок бар</h1>
+        <h1 class="text-light col-11 col-md-10">SK Bar - рок бар {{ connected }}</h1>
         <!-- <svg type="button" data-bs-toggle="modal" data-bs-target="#exampleModalLabel" class="col-1 col-md-2" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="23" cy="23" r="23" fill="white" />
           <path d="M23.0116 20.002C21.9073 20.002 21.1221 20.5009 21.1221 21.236V31.2389C21.1221 31.869 21.9073 32.499 23.0116 32.499C24.0669 32.499 24.9257 31.869 24.9257 31.2389V21.2359C24.9257 20.5008 24.0669 20.002 23.0116 20.002Z" fill="#FF2C3D" />
@@ -72,11 +72,11 @@
     <div>{{ sumCart() }} руб.</div>
 
   </div>
-  
 </template>
 
 <script>
 import { useStorage } from '@vueuse/core'
+import { socket, state } from "../socket";
 
 export default {
   data() {
@@ -140,11 +140,17 @@ export default {
       table: useStorage('table', 0)
     }
   },
+  computed: {
+    connected() {
+      return state.connected;
+    }
+  },
   mounted() {
     let url = new URL(window.location.href)
     this.table = url.searchParams.get('t') || 0
     url.searchParams.delete('t')
     window.history.replaceState({}, document.title, url.href)
+    socket.connect()
   },
   methods: {
     addCart(product) {
