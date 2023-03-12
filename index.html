@@ -4,10 +4,89 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SK Bar Menu</title>
+    <link rel="stylesheet" href="src/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/assets/css/styles.css">
+    <link rel="stylesheet" href="src/assets/css/slick.css">
+    <title>SK Bar Menu222</title>
   </head>
   <body>
     <div id="app"></div>
+
+
+        <!-- Модалька с карзиной -->
+        <div class="modal custom fade anim_menu_modal" id="modal-Cart" tabindex="-1"
+        aria-labelledby="modal-Cart" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Корзина</h1>
+                    <button type="button" class="btn-close anim_close" data-bs-dismiss="modal"
+                        aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body mini_cart_modal ps-1 pe-1">
+              
+                  <div class="d-flex align-items-center mini_cart_item mb-3">
+                    <div class="col-3 ">
+                      <img class="img_mini_cart_item w-100" loading="lazy" src="https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg">
+                    </div>
+                    
+                    <div class="description_item_cart col-6 ps-2">
+                      <p class="fs-3 mb-1 name_items_cart">Название</p>
+                      <p class="fs-6 mb-0"> 1шт x 250руб.</p>
+                    </div>
+
+                    <div class="col-3 d-flex">
+                     
+                      <div class="add_cart d-flex justify-content-center me-1">
+                        <span>➖</span>
+                      </div>
+                      <span>2</span>
+                      <div class="add_cart d-flex justify-content-center ms-1">
+                        <span>➕</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center mini_cart_item mb-3">
+                    <div class="col-3 ">
+                      <img class="img_mini_cart_item w-100" loading="lazy" src="https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg">
+                    </div>
+                    
+                    <div class="description_item_cart col-6 ps-2">
+                      <p class="fs-3 mb-1 name_items_cart"> Длинное название</p>
+                      <p class="fs-6 mb-0 "> 1шт x 250руб.</p>
+                    </div>
+
+                    <div class="col-3 d-flex">
+                      <div  class="add_cart d-flex justify-content-center me-1">
+                        <span>➖</span>
+                      </div>
+                      <span>2</span>
+                     
+                      <div class="add_cart d-flex justify-content-center ms-1">
+                        <span>➕</span>
+                      </div>
+                    </div>
+                  </div>
+                      
+                </div>
+                <div class="modal-footer justify-content-between">
+                  <p>Итого: 500руб.</p>
+                  <button type="button" class="btn btn-danger anim_close_btn">Заказать</button>
+
+                  <!-- <button type="button" class="btn btn-secondary anim_close_btn"
+                        data-bs-dismiss="modal">Закрыть</button> -->
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="src/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="src/assets/js/slick.min.js"></script>
+    <script src="src/assets/js/main.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
