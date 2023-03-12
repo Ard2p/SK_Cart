@@ -23,19 +23,19 @@
         <span></span>
       </div>
       <div id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 slider_menu">
-        <a class="nav-link" v-for='category in categoryes' :href='"#cat" + category.id'>{{ category.name }}</a>
+        <a class="nav-link" v-for='category in categoryes' @click='toScroll("cat" + category.id)'>{{ category.name }}</a>
       </div>
     </div>
 
     <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
 
-      <div v-for='category in categoryes' :id='"#cat" + category.id'>
+      <div v-for='category in categoryes' :ref='"cat" + category.id' style='scroll-margin: 60px !important;'>
         <h3 class="ps-2">{{ category.name }}</h3>
         <div class="d-flex flex-wrap justify-content-center">
 
           <div v-for='product in category.products' class="d-flex flex-column rounded-3 position-relative item_cart">
 
-            <img class="img_item" loading="lazy" src="https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg">
+            <img class="img_item" loading="lazy" :src='product.photo'>
 
             <div class="info_product_menu rounded-3 d-flex flex-column justify-content-between h-100">
 
@@ -67,6 +67,83 @@
     </div>
   </section>
 
+
+  <!-- Модалька с меню   -->
+  <div class="modal custom fade anim_menu_modal" id="exampleModalLabel2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Категории</h1>
+          <button type="button" class="btn-close anim_close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+
+        <div class="modal-body">
+          <div type="button" class="mb-3 modal_menu_items" data-bs-dismiss="modal">
+
+            <a v-for='category in categoryes' @click='toScroll("cat" + category.id)' type="button" class="d-flex close_button anim_close_btn">
+              <img class="col-4 me-2" :src='category.photo'>
+              <div>
+                <h4>{{ category.name }}</h4>
+                <p class="quantity">{{ declination(Object.keys(category.products).length, ['позиция', 'пизиции', 'пизиций']) }} </p>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary anim_close_btn" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалька с карзиной -->
+  <div class="modal custom fade anim_menu_modal" id="modal-Cart" tabindex="-1" aria-labelledby="modal-Cart" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Корзина</h1>
+          <button type="button" class="btn-close anim_close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body mini_cart_modal ps-1 pe-1">
+
+          <div v-for='product in cart' class="d-flex align-items-center mini_cart_item mb-3">
+            <div class="col-3">
+              <img class="img_mini_cart_item w-100" loading="lazy" :src='product.photo'>
+            </div>
+
+            <div class="description_item_cart col-6 ps-2">
+              <p class="fs-3 mb-1 name_items_cart">{{ product.name }}</p>
+              <p class="fs-6 mb-0"> {{ product.quantity }} шт x {{ product.price }} руб.</p>
+            </div>
+
+            <div class="col-3 d-flex">
+
+              <div @click='delCart(product)' class="add_cart d-flex justify-content-center me-1">
+                <span>➖</span>
+              </div>
+              <span>{{ product.quantity }}</span>
+              <div @click='addCart(product)' class="add_cart d-flex justify-content-center ms-1">
+                <span>➕</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <p>Итого: </p>
+          <div>{{ countCart() }} шт.</div>
+          <div>{{ sumCart() }} руб.</div>
+          <button type="button" class="btn btn-danger anim_close_btn">Заказать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="mini_cart sticky-bottom p-3" v-if='countCart()'>
     <div type="button" data-bs-toggle="modal" data-bs-target="#modal-Cart" class="btn_cart d-flex w-100 align-items-center justify-content-between">
       <h2>Корзина:</h2>
@@ -79,9 +156,17 @@
 
 <script>
 import { useStorage } from '@vueuse/core'
-import { socket, state } from "../socket";
+// import { socket, state } from "../socket"
 
 export default {
+  head: {
+    script: [
+      { type: 'text/javascript', src: 'https://code.jquery.com/jquery-3.6.3.min.js' },
+      { type: 'text/javascript', src: './src/assets/js/bootstrap.bundle.min.js' },
+      { type: 'text/javascript', src: './src/assets/js/slick.min.js' },
+      { type: 'text/javascript', src: './src/assets/js/main.js' }
+    ]
+  },
   data() {
     return {
       categoryes: [{
@@ -91,7 +176,7 @@ export default {
           id: 1,
           name: 'Картошка фри',
           price: 100,
-          photo: '',
+          photo: 'https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg',
           decription: 'Картофель обжаренный во фритюрнице'
         }, {
           id: 2,
@@ -99,7 +184,7 @@ export default {
           cat_name: 'Закуски',
           name: 'Картофельные дольки',
           price: 100,
-          photo: '',
+          photo: 'https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg',
           decription: 'Картофель обжаренный во фритюрнице дольками'
         }]
       }, {
@@ -109,7 +194,7 @@ export default {
           id: 3,
           name: 'Картошка фри',
           price: 100,
-          photo: '',
+          photo: 'https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg',
           decription: 'Картофель обжаренный во фритюрнице'
         }, {
           id: 4,
@@ -117,7 +202,7 @@ export default {
           cat_name: 'Закуски',
           name: 'Картофельные дольки',
           price: 100,
-          photo: '',
+          photo: 'https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg',
           decription: 'Картофель обжаренный во фритюрнице дольками'
         }]
       }, {
@@ -127,7 +212,7 @@ export default {
           id: 5,
           name: 'Картошка фри',
           price: 100,
-          photo: '',
+          photo: 'https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg',
           decription: 'Картофель обжаренный во фритюрнице'
         }, {
           id: 6,
@@ -135,7 +220,7 @@ export default {
           cat_name: 'Закуски',
           name: 'Картофельные дольки',
           price: 100,
-          photo: '',
+          photo: 'https://phonoteka.org/uploads/posts/2021-07/1625283016_18-phonoteka-org-p-kartoshka-fri-oboi-oboi-krasivo-21.jpg',
           decription: 'Картофель обжаренный во фритюрнице дольками'
         }]
       }],
@@ -143,17 +228,13 @@ export default {
       table: useStorage('table', 0)
     }
   },
-  computed: {
-    connected() {
-      return state.connected;
-    }
-  },
+  computed: { },
   mounted() {
     let url = new URL(window.location.href)
     this.table = url.searchParams.get('t') || 0
     url.searchParams.delete('t')
     window.history.replaceState({}, document.title, url.href)
-    socket.connect()
+    // socket.connect()
   },
   methods: {
     addCart(product) {
@@ -183,6 +264,15 @@ export default {
       }).then((response) => {
         this.cart = {}
       })
+    },
+    declination(number, titles) {
+      let cases = [2, 0, 1, 1, 1, 2]
+      return number + ' ' + titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]]
+    },
+    toScroll(refName) {
+      this.$nextTick(() => {
+        this.$refs[refName][0].scrollIntoView({ behavior: 'smooth' })
+      })
     }
   }
 }
@@ -205,4 +295,5 @@ nav {
 
 nav.scrolled {
   border-bottom: 0px;
-}</style>
+}
+</style>
