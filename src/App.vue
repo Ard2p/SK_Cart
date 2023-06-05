@@ -1,10 +1,13 @@
 <script setup>
-import Menu from './components/Menu.vue'
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <Menu/>
+  <section class="container">
+    <RouterView />
+  </section>
 </template>
 
-<style scoped>
+<style lang="scss">
+// @import 'assets/scss/styles.scss';
 </style>

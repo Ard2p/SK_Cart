@@ -1,9 +1,9 @@
 <template>
   <header>
-    <div class="container-xxl m-auto position-relative d-flex flex-column justify-content-between" style='background-image: url(https://sun9-77.userapi.com/c846221/v846221803/17e5cd/zovR1jbr5-o.jpg);'>
-      <div>
-        <!-- <img class="logo mt-3 ms-3" src="assest/images/logo.jpeg" alt="Логотип"> -->
-      </div>
+    <div class="container-xxl m-auto position-relative d-flex flex-column justify-content-between">
+      <!-- <img class="logo mt-3 ms-3" src="assest/images/logo.jpeg" alt="Логотип"> -->
+      <img class="logo" src="@/assets/img/logo_Bada_bing.svg" />
+
       <div class="d-flex p-1">
         <h1 class="text-light col-11 col-md-10">SK Bar - рок бар {{ connected }}</h1>
         <!-- <svg type="button" data-bs-toggle="modal" data-bs-target="#exampleModalLabel" class="col-1 col-md-2" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -228,7 +228,7 @@ export default {
       table: useStorage('table', 0)
     }
   },
-  computed: { },
+  computed: {},
   mounted() {
     let url = new URL(window.location.href)
     this.table = url.searchParams.get('t') || 0

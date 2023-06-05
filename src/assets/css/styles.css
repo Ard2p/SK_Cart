@@ -1,6 +1,11 @@
 @import 'slick.css';
 @import 'bootstrap.min.css';
 
+
+body {
+    background: #090013;
+}
+
 .container-xxl {
     padding-right: calc(var(--bs-gutter-x) * .2);
     padding-left: calc(var(--bs-gutter-x) * .2);
@@ -24,18 +29,20 @@ header>div::before {
     width: 100%;
     height: 100%;
     left: 0;
-    background: #0000005e;
+    /* background: #0000005e; */
 }
 
 .logo {
-    border-radius: 40px;
     object-fit: contain;
-    width: 80px;
-    height: 80px;
+    height: 340px;
 }
 
 header>div div {
     position: relative;
+}
+
+.sticky-top {
+    background: #090013;
 }
 
 .fade:not(.show) .modal-dialog {
@@ -110,8 +117,11 @@ header>div div {
 }
 
 .info_product_menu {
-    margin-top: -10px;
-    background: #fff;
+    border: 4px solid transparent;
+    border-image: linear-gradient(338deg, rgb(226 2 126), #580a66);
+    border-image-slice: 1;
+    border-top: none;
+    border-left: none;
 }
 
 .description_item p {
@@ -122,7 +132,7 @@ header>div div {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgb(255, 59, 59);
+    background: rgb(226 2 126);
     font-family: 'Segoe UI Symbol';
     color: #fff;
 }
@@ -131,13 +141,14 @@ header>div div {
     width: 70%;
 }
 
-.add_cart span{
+.add_cart span {
     display: flex;
     align-items: center;
 }
 
 .slider_menu {
-    width: 90%;
+    width: 85%;
+    height: 60px;
 }
 
 .nav-link.slick-slide {
@@ -153,10 +164,8 @@ header>div div {
 }
 
 .left_menu {
-    width: 10%;
+    width: 15%;
     height: 60px;
-    background: #fff;
-
 }
 
 .left_menu :first-child::before {
@@ -166,8 +175,9 @@ header>div div {
     left: 10px;
     width: 70%;
     height: 3px;
-    background: #000;
+    background: #fff;
     transition: .3s ease-in-out;
+    box-shadow: 0px 2px 13px #e2027e;
 }
 
 .left_menu :first-child::after {
@@ -177,8 +187,9 @@ header>div div {
     left: 10px;
     width: 70%;
     height: 3px;
-    background: #000;
+    background: #fff;
     transition: .3s ease-in-out;
+    box-shadow: 0px 2px 13px #e2027e;
 }
 
 .left_menu :last-child::before {
@@ -188,8 +199,9 @@ header>div div {
     left: 10px;
     width: 70%;
     height: 3px;
-    background: #000;
+    background: #fff;
     transition: .3s ease-in-out;
+    box-shadow: 0px 2px 13px #e2027e;
 }
 
 .left_menu.open :first-child::before {
@@ -213,7 +225,7 @@ header>div div {
 }
 
 .modal_menu_items :first-child {
-    margin-bottom: -3px;
+    /* margin-bottom: -3px; */
 }
 
 .modal_menu_items img {
@@ -233,42 +245,84 @@ footer {
 footer .copyright {
     border-top: 1px solid #c0c0c04a;
 }
-.prise p{
+
+.prise p {
     font-size: calc(0.9rem + .6vw);
 }
-.mini_cart{
-    background: #ffffffdc;
+
+.mini_cart {
+    background: #090013;
+    border-top: 2px solid rgb(226 2 126);
 }
-.btn_cart{
-    background: #ff2c3d;
+
+.btn_cart {
+    background: rgb(226 2 126);
     border-radius: 50px;
     padding: 5px 20px;
     color: #fff;
-    
 }
-.img_mini_cart_item{
+
+.img_mini_cart_item {
     height: 65px;
     object-fit: cover;
 }
-.name_items_cart{
+
+.name_items_cart {
     line-height: 18px;
 }
-.mini_cart_modal{
-    border-bottom: 1px solid #ff2c3d;
-}
+
 .mini_cart_modal .add_cart {
     width: 25px;
     height: 25px;
 }
+
 @media (max-width:375px) {
     .h3, h3 {
         font-size: calc(1rem + .6vw);
     }
-    .description_item p{
+
+    .description_item p {
         font-size: calc(0.8rem + .3vw);
     }
+
     .add_cart {
         width: 30px;
         height: 30px;
     }
+}
+
+
+.btn-danger {
+    background: rgb(226 2 126);
+}
+
+.modal-content {
+    background: #090013;
+    border: 2px solid rgb(226 2 126);
+    text-shadow: rgb(226 2 126) 0px 2px 13px !important;
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgb(226 2 126);
+}
+
+.modal-footer {
+    border-top: 1px solid rgb(226 2 126);
+    border-bottom-right-radius: initial;
+    border-bottom-left-radius: initial;
+}
+
+.modal-body a {
+    color: #fff;
+}
+
+.quantity {
+    color: #9d9d9d;
+    text-shadow: none;
+}
+
+.menu-top{
+    border-bottom: 2px solid rgb(226 2 126);
+    margin-bottom: 20px;
 }
