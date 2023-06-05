@@ -25,7 +25,20 @@
 
           <div v-for='product in category.products' class="d-flex flex-column rounded-3 position-relative item_cart">
 
-            <img class="img_item" loading="lazy" :src='product.photo'>
+            <template v-if='product.photo != null'>
+              <img class="img_item" loading="lazy" :src='product.photo'>
+            </template>
+            <template v-else>
+              <svg fill="#ffffff" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>no-image</title>
+                  <path d="M30,3.4141,28.5859,2,2,28.5859,3.4141,30l2-2H26a2.0027,2.0027,0,0,0,2-2V5.4141ZM26,26H7.4141l7.7929-7.793,2.3788,2.3787a2,2,0,0,0,2.8284,0L22,19l4,3.9973Zm0-5.8318-2.5858-2.5859a2,2,0,0,0-2.8284,0L19,19.1682l-2.377-2.3771L26,7.4141Z"></path>
+                  <path d="M6,22V19l5-4.9966,1.3733,1.3733,1.4159-1.416-1.375-1.375a2,2,0,0,0-2.8284,0L6,16.1716V6H22V4H6A2.002,2.002,0,0,0,4,6V22Z"></path>
+                </g>
+              </svg>
+            </template>
 
             <div class="info_product_menu rounded-3 d-flex flex-column justify-content-between h-100">
 
@@ -43,13 +56,29 @@
                   <p class="mb-0 ps-0 ps-sm-2">{{ product.price }} руб.</p>
 
                   <div v-if='cart[product.id]' @click='delCart(product)' class="add_cart d-flex justify-content-center">
-                    <span>➖</span>
+                    <span>
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C6 11.4477 6.44772 11 7 11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12Z" fill="#ffffff"></path>
+                        </g>
+                      </svg>
+                    </span>
                   </div>
 
                   <div v-if='cart[product.id]'>{{ cart[product.id].quantity }}</div>
 
                   <div @click='addCart(product)' class="add_cart d-flex justify-content-center">
-                    <span>➕</span>
+                    <span>
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path d="M13.5 3C13.5 2.44772 13.0523 2 12.5 2H11.5C10.9477 2 10.5 2.44772 10.5 3V10.5H3C2.44772 10.5 2 10.9477 2 11.5V12.5C2 13.0523 2.44772 13.5 3 13.5H10.5V21C10.5 21.5523 10.9477 22 11.5 22H12.5C13.0523 22 13.5 21.5523 13.5 21V13.5H21C21.5523 13.5 22 13.0523 22 12.5V11.5C22 10.9477 21.5523 10.5 21 10.5H13.5V3Z" fill="#ffffff"></path>
+                        </g>
+                      </svg>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -78,7 +107,22 @@
           <div type="button" class="mb-3 modal_menu_items" data-bs-dismiss="modal">
 
             <a v-for='category in categoryes' @click='toScroll("cat" + category.id)' type="button" class="d-flex close_button anim_close_btn">
-              <img class="col-4 me-2" :src='category.photo'>
+
+              <template v-if='category.photo != null'>
+                <img class="col-4 me-2" :src='category.photo'>
+              </template>
+              <template v-else>
+                <svg class="col-4 me-2" fill="#ffffff" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <title>no-image</title>
+                    <path d="M30,3.4141,28.5859,2,2,28.5859,3.4141,30l2-2H26a2.0027,2.0027,0,0,0,2-2V5.4141ZM26,26H7.4141l7.7929-7.793,2.3788,2.3787a2,2,0,0,0,2.8284,0L22,19l4,3.9973Zm0-5.8318-2.5858-2.5859a2,2,0,0,0-2.8284,0L19,19.1682l-2.377-2.3771L26,7.4141Z"></path>
+                    <path d="M6,22V19l5-4.9966,1.3733,1.3733,1.4159-1.416-1.375-1.375a2,2,0,0,0-2.8284,0L6,16.1716V6H22V4H6A2.002,2.002,0,0,0,4,6V22Z"></path>
+                  </g>
+                </svg>
+              </template>
+
               <div>
                 <h4>{{ category.name }}</h4>
                 <p class="quantity">{{ declination(Object.keys(category.products).length, ['позиция', 'пизиции', 'пизиций']) }} </p>
@@ -109,7 +153,20 @@
 
           <div v-for='product in cart' class="d-flex align-items-center mini_cart_item mb-3">
             <div class="col-3">
-              <img class="img_mini_cart_item w-100" loading="lazy" :src='product.photo'>
+              <template v-if='product.photo != null'>
+                <img class="img_mini_cart_item w-100" loading="lazy" :src='product.photo'>
+              </template>
+              <template v-else>
+                <svg fill="#ffffff" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <title>no-image</title>
+                    <path d="M30,3.4141,28.5859,2,2,28.5859,3.4141,30l2-2H26a2.0027,2.0027,0,0,0,2-2V5.4141ZM26,26H7.4141l7.7929-7.793,2.3788,2.3787a2,2,0,0,0,2.8284,0L22,19l4,3.9973Zm0-5.8318-2.5858-2.5859a2,2,0,0,0-2.8284,0L19,19.1682l-2.377-2.3771L26,7.4141Z"></path>
+                    <path d="M6,22V19l5-4.9966,1.3733,1.3733,1.4159-1.416-1.375-1.375a2,2,0,0,0-2.8284,0L6,16.1716V6H22V4H6A2.002,2.002,0,0,0,4,6V22Z"></path>
+                  </g>
+                </svg>
+              </template>
             </div>
 
             <div class="description_item_cart col-6 ps-2">
@@ -120,11 +177,27 @@
             <div class="col-3 d-flex justify-content-center">
 
               <div @click='delCart(product)' class="add_cart d-flex justify-content-center me-1">
-                <span>➖</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C6 11.4477 6.44772 11 7 11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12Z" fill="#ffffff"></path>
+                    </g>
+                  </svg>
+                </span>
               </div>
               <span>{{ product.quantity }}</span>
               <div @click='addCart(product)' class="add_cart d-flex justify-content-center ms-1">
-                <span>➕</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path d="M13.5 3C13.5 2.44772 13.0523 2 12.5 2H11.5C10.9477 2 10.5 2.44772 10.5 3V10.5H3C2.44772 10.5 2 10.9477 2 11.5V12.5C2 13.0523 2.44772 13.5 3 13.5H10.5V21C10.5 21.5523 10.9477 22 11.5 22H12.5C13.0523 22 13.5 21.5523 13.5 21V13.5H21C21.5523 13.5 22 13.0523 22 12.5V11.5C22 10.9477 21.5523 10.5 21 10.5H13.5V3Z" fill="#ffffff"></path>
+                    </g>
+                  </svg>
+                </span>
               </div>
 
             </div>
@@ -160,10 +233,7 @@ import { useStorage } from '@vueuse/core'
 export default {
   head: {
     script: [
-      { type: 'text/javascript', src: 'https://code.jquery.com/jquery-3.6.3.min.js' },
-      { type: 'text/javascript', src: './src/assets/js/bootstrap.bundle.min.js' },
-      { type: 'text/javascript', src: './src/assets/js/slick.min.js' },
-      { type: 'text/javascript', src: './src/assets/js/main.js' }
+      { type: 'text/javascript', src: './src/assets/js/bootstrap.bundle.min.js' }
     ]
   },
   data() {

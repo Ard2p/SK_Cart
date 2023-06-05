@@ -146,9 +146,19 @@ header>div div {
     align-items: center;
 }
 
+.add_cart span svg {
+    width: 20px;
+}
+
 .slider_menu {
     width: 85%;
     height: 60px;
+    overflow: auto;
+    flex-wrap: nowrap;
+}
+
+.slider_menu .nav-link {
+    padding: 0 15px;
 }
 
 .nav-link.slick-slide {
@@ -322,7 +332,7 @@ footer .copyright {
     text-shadow: none;
 }
 
-.menu-top{
+.menu-top {
     border-bottom: 2px solid rgb(226 2 126);
     margin-bottom: 20px;
 }
